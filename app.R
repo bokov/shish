@@ -1,4 +1,4 @@
-#library(shiny);library(shinyjs); library(shinyalert);
+library(shiny); #library(shinyjs); library(shinyalert);
 
 # fn for detecting enter key
 entkey <- '
@@ -14,8 +14,8 @@ ui <- fluidPage(
   tags$head(tags$link(rel="shortcut icon", href="favicon.ico"))
   ,tags$script(entkey)
   ,includeCSS('app.css')
-  ,useShinyjs()
-  ,useShinyalert()
+  #,useShinyjs()
+  #,useShinyalert()
   ,fluidRow(h3('SHIny SHell (debugging tool)')
             ,'Do not run unattended, do not share link with the public.')
   ,mainPanel(
