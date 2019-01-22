@@ -1,0 +1,101 @@
+/* site-wide UT-ish branding */
+body,.dfHelp,.dfHelp code {
+  font-family: "Open Sans",Trebuchet,sans-serif;
+}
+.panel-primary,.panel-collapse>.panel-body{
+  border-color: #008c99 !important; }
+a,.fa-question-circle { color: #008c99; font-weight: 600;}
+a:hover { color: #004067;}
+.container-fluid>.row {
+  color: #C0511B;
+  /*background-color: white;*/
+  margin-bottom: 10px;
+}
+
+/* header in accordance with UT header styling */
+h3 {font-family: "Cardo", "Times New Roman", serif;}
+
+/* The next few are to line up the page header */
+#apptitle {
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+/* R console */
+pre {margin: 0; border-style: none;}
+.coninp::before{content: "> ";}
+.coninp{color:blue;background-color: white;}
+.conerr{color:darkred;}
+#console {height: 60vh; width: 80vw; overflow: scroll;}
+div.form-group.shiny-input-container {width: 100%; }
+
+/* help text */
+
+.dfHelp{
+  padding: 0 15px 5px 15px;
+}
+.dfHelp>h2{
+  margin: 0;
+  font-size: 2rem;
+}
+.dfHelp code{
+  color:black; 
+  font-weight: 600;
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  line-height: 9px;
+  padding: 2px;
+  margin: 1px;
+}
+
+.dfHelp p{padding-top: 10px;}
+
+.bigimg {
+  display: block;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-right: auto;
+  width: 500px;
+}
+
+/* Make the labels less obnoxious */
+label {color: black; font-weight: 400; text-align: justify;}
+.tab-pane label { min-width: 80vw ;}
+
+/* make panel headings more compact and UT-ish */
+.panel-heading {
+  padding-top: 2px; 
+  padding-bottom: 2px;
+  background-color: #008c99 !important;
+}
+
+.panel-heading:hover {background-color: #004067 !important;}
+
+/* Tabs themselves more compact*/
+.nav { margin-bottom: 8px;}
+ul.nav>li>a {
+  padding: 4px 12px 4px 12px;
+  line-height: 100%; 
+  text-align: center;
+}
+
+
+/* make buttons more compact */
+.btn,.dfHelp>div>button {
+  padding: 0 6px 0 6px;
+  margin-left: 6px;
+  margin-top: 5px;
+}
+
+/* more generic layout */
+
+.tab-pane>hr {margin: 10px}
+
+p,p>a,.dfHelp p,.regulartext,.dfDisclaimer,.regulartext li {
+  text-align: justify;
+  font-size:  1.2rem;
+  font-weight: 100;
+  color: black;
+  font-stretch: semi-condensed;
+}
