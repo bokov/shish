@@ -9,6 +9,12 @@
 .projpre <- c();
 #.projpre <- 'dplyr';
 
+
+# packages to load AFTER all the installs (in the order given)
+# (uncomment the line after next and put in package names)
+.projpst <- c();
+#.projpst <- c('queryBuilder');
+
 # packages to install locally
 # (uncomment the line after next and put in package names)
 .projins <- c();
@@ -26,21 +32,14 @@
 .projlsv <- 'www/projlog.txt';
 
 if(file.exists(.projlib)){
-  for(ii in .projpre) {
-    message(sprintf('Pre-loading %s',ii));
-    library(ii,character.only = T);}
-
   if(!.projlib %in% .libPaths()){
     message(sprintf('Adding %s to .libPaths()',.projlib));
     .libPaths( c(normalizePath(.projlib), .libPaths()) )} else {
       message(sprintf('%s already in .libPaths()',.projlib));
     };
   
-  if(file.exists('.projlibrun')){
+  if(file.exists('projlibrun')){
     message(sprintf('.projlibrun file exists so bypassing installations'));
-    for(ii in c(.projins,names(.projtgz))){
-      do.call(library,list(package=ii,character.only=T));
-    }
   } else {
     # install from repos in .projlib
     for(ii in .projins){
@@ -75,10 +74,19 @@ if(file.exists(.projlib)){
     }
   }
   
-  file.create('.projlibrun');
+  file.create('projlibrun');
   if(!is.null(.projlsv) && ! .projlsv %in% c(NA,'')){
     write(.projlog,file = .projlsv);
   }
+  
+  for(ii in .projpre) {
+    message(sprintf('Pre-loading %s',ii));
+    do.call(library,list(package=ii,character.only = T,lib=.libPaths()[-1]));}
+
+  for(ii in .projpst){
+    message(sprintf('Post-loading %s',ii));
+    do.call(library,list(package=ii,character.only = T))}
 }
+
 
 c()
