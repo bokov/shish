@@ -1,4 +1,4 @@
-library(shiny); #library(shinyjs); library(shinyalert);
+if(file.exists('projlib.R')) source('projlib.R');
 
 # fn for detecting enter key
 entkey <- '
