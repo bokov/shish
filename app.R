@@ -11,6 +11,7 @@ $(document).on("keyup", function(ee) {
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  HTML("<a href='__logout__'>Log Out</a>"),
   tags$head(tags$link(rel="shortcut icon", href="favicon.ico"))
   ,tags$script(entkey)
   ,includeCSS('app.css')
@@ -40,7 +41,10 @@ server <- function(input, output, session=getDefaultReactiveDomain()) {
     if(is(out,'try-error')){
       outclass <- 'conerr';
       out <- attr(out,'condition')$message;
-    } else outclass <- 'conrslt';
+    } else {
+      out <- paste0(out,collapse='\n');
+      outclass <- 'conrslt';
+    }
     insertUI('#console','beforeEnd',ui=pre(out,class=outclass),immediate = T);
     message('\n*** updated output ***\n');
     });
